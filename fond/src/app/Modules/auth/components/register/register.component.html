@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">ََAjouter un Utilisateur</div>
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" formControlName="nom" class="form-control" id="nom">
+              <div *ngIf="registerForm.controls['nom'].invalid && (registerForm.controls['nom'].dirty || registerForm.controls['nom'].touched)"
+                   class="text-danger">Nom requis</div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="email">
+              <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+                   class="text-danger">Email requis et doit être valide</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input type="password" formControlName="password" class="form-control" id="password">
+              <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+                   class="text-danger">Mot de passe requis</div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+              <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+              <div *ngIf="registerForm.controls['confirmPassword'].invalid && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)"
+                   class="text-danger">Confirmation du mot de passe requis</div>
+              <div *ngIf="registerForm.controls['password'].value !== registerForm.controls['confirmPassword'].value"
+                   class="text-danger">Les mots de passe doivent correspondre</div>
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Rôle</label>
+              <select formControlName="role" class="form-select" id="role">
+                <option value="SuperAdmin">SuperAdmin</option>
+                <option value="Admin">Admin</option>
+                <option value="ComplianceOfficer">ComplianceOfficer</option>
+                <option value="PublicEntityRepresentative">PublicEntityRepresentative</option>
+              </select>
+              <div *ngIf="registerForm.controls['role'].invalid && (registerForm.controls['role'].dirty || registerForm.controls['role'].touched)"
+                   class="text-danger">Rôle requis</div>
+            </div>
+            <button type="submit" class="btn btn-primary">S'enregistrer</button>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

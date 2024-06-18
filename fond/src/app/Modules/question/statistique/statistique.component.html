@@ -1,0 +1,15 @@
+<div *ngFor="let question of questions">
+  <div *ngIf="question._id !== undefined">
+    <h4>{{ question.text }}</h4>
+    <div *ngFor="let option of question.options; let i = index" class="progress mb-3">
+      <div class="progress-bar bg-success" 
+           role="progressbar"
+           [style.width.%]="getPercentage(question._id, i)" 
+           [attr.aria-valuenow]="getPercentage(question._id, i)"
+           aria-valuemin="0" 
+           aria-valuemax="100">
+        {{ option }}: {{ getPercentage(question._id, i) }}%
+      </div>
+    </div>
+  </div>
+</div>

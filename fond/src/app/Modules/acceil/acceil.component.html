@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil</title>
+  <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Barre latérale */
+    .sidebar {
+      background-color: #33AFFF; /* Couleur de fond */
+    }
+
+    .sidebar .nav-link {
+      color: #ffffff; /* Couleur du texte */
+    }
+
+    .sidebar .nav-link:hover {
+      color: #f0f0f0; /* Couleur du texte au survol */
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #33AFFF; /* Couleur de fond */
+    }
+
+    .navbar .nav-link {
+      color: #ffffff; /* Couleur du texte */
+    }
+
+    .navbar .nav-link:hover {
+      color: #f0f0f0; /* Couleur du texte au survol */
+    }
+
+    /* Contenu principal */
+    .bg-light {
+      background-color: #f8f9fa; /* Couleur de fond */
+    }
+
+    h1 {
+      color: #33AFFF; /* Couleur du titre */
+    }
+  </style>
+</head>
+<body>
+  <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <div class="d-flex justify-content-end"> <!-- Alignement à droite -->
+        <button class="btn btn-outline-danger" (click)="logout()">
+          Déconnexion
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid vh-100 d-flex flex-nowrap">
+    <div   class="col-md-3 col-lg-2 bg-dark text-white sidebar d-none d-md-block">
+      <ul class="nav flex-column nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">Ajouter Compte</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/policy">Consulter Politiques</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/addpolicy">Ajouter Politique</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ques">Ajouter Question</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/getques">Repondre Questions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/confirm">
+            Confirmation
+            <span class="badge bg-danger">{{ unconfirmedResponsesCount }}</span>
+          </a>
+          
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/stat">Statistique</a>
+        </li>
+      </ul>
+    </div>
+
+    <main class="col-md-9 bg-light">
+      <div class="container">
+        <h1 class="mt-5">Gestion de politique de Securité </h1>
+        <p></p>
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-uugYd5ib8zYrjUcsQvjgO85jWjcmvUeIAulup+GtWONpGtTpHq/S7Gq5ThtGshOM" crossorigin="anonymous"></script>
+</body>
+</html>

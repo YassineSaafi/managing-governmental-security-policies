@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Ajouter une nouvelle politique</div>
+          <div class="card-body">
+            <form [formGroup]="addPolicyForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="title" class="form-label">Titre</label>
+                <input type="text" formControlName="title" class="form-control" id="title">
+              </div>
+              <div class="mb-3">
+                <label for="content" class="form-label">Contenu</label>
+                <textarea formControlName="content" class="form-control" id="content" rows="4"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="effectiveDate" class="form-label">Date d'entrée en vigueur</label>
+                <input type="date" formControlName="effectiveDate" class="form-control" id="effectiveDate">
+              </div>
+              <div class="mb-3">
+                <label for="version" class="form-label">Version</label>
+                <input type="number" formControlName="version" class="form-control" id="version">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" formControlName="status" class="form-check-input" id="status">
+                <label class="form-check-label" for="status">Actif</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

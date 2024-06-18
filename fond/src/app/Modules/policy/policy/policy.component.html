@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h1>Les politique</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Date d'entrée en vigueur</th>
+        <th>Version</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let policy of policies">
+        <td>{{ policy.title }}</td>
+        <td>{{ policy.effectiveDate }}</td>
+        <td>{{ policy.version }}</td>
+        <td>{{ policy.status }}</td>
+        <td>
+          <!-- Bouton de suppression -->
+          <button *ngIf="policy._id !== undefined" class="btn btn-danger" (click)="deletePolicy(policy._id)">Supprimer</button>
+          <!-- Bouton de modification -->
+          <button *ngIf="policy._id !== undefined" class="btn btn-primary" (click)="updatePolicy(policy._id)">Modifier</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

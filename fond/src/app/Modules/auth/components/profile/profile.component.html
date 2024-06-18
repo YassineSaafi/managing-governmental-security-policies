@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Profil de l'utilisateur
+          </div>
+          <div class="card-body">
+            <div *ngIf="userProfile">
+              <p><strong>Nom :</strong> {{ userProfile.name }}</p>
+              <p><strong>Email :</strong> {{ userProfile.email }}</p>
+              <!-- Ajoutez d'autres informations de profil ici -->
+            </div>
+            <div *ngIf="!userProfile">
+              <p>Chargement du profil...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

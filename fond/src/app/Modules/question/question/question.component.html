@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="mb-4">Ajouter une question</h2>
+
+  <form class="row g-3" (ngSubmit)="addQuestion()">
+    <div class="col-md-6">
+      <label for="category" class="form-label">Catégorie :</label>
+      <select id="category" name="category" [(ngModel)]="selectedCategory" class="form-select" required>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+
+      <label for="questionText" class="form-label mt-3">Question :</label>
+      <input type="text" id="questionText" name="questionText" [(ngModel)]="newQuestionText" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label for="options" class="form-label">Options :</label>
+      <div *ngFor="let option of newQuestionOptions; let i = index" class="input-group mb-3">
+        <input type="text" id="option{{ i }}" name="option{{ i }}" [(ngModel)]="newQuestionOptions[i]" class="form-control" required>
+        <button type="button" class="btn btn-outline-secondary" (click)="removeOption(i)">Supprimer</button>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="addOption()">Ajouter une option</button>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Ajouter la question</button>
+    </div>
+  </form>
+</div>

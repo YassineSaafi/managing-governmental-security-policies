@@ -1,0 +1,13 @@
+<div *ngFor="let question of questions">
+  <h3>{{ question.text }}</h3>
+  <ul>
+    <li *ngFor="let option of question.options; let i = index">
+      <input *ngIf="question._id" type="radio" name="{{ question._id }}" [value]="i" (change)="selectOption(question._id, i)">
+
+
+      <label>{{ option }}</label>
+    </li>
+  </ul>
+</div>
+
+<button (click)="submitAnswers()">Submit Answers</button>
